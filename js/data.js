@@ -1,4 +1,4 @@
-import { getRandInt } from "./utils";
+import { getRandInt } from "./utils.js";
 
 function getPhotos() {
   const photos = [];
