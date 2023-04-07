@@ -1,5 +1,6 @@
 const form = document.querySelector('.img-upload__form');
 
+// eslint-disable-next-line no-undef
 const pristine = new Pristine(form, {
   classTo: 'img-upload__text',
   successClass: 'form--valid',
