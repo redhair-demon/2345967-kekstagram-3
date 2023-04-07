@@ -20,3 +20,5 @@ function openImageUpload() {
 
 fileInput.addEventListener('change', openImageUpload);
 closeImageUploadButton.addEventListener('click', closeImageUpload);
+
+export {closeImageUpload};
