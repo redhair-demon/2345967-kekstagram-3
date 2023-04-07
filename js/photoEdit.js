@@ -55,7 +55,7 @@ noUiSlider.create(sliderElement, {
   },
   start: 100,
   step: 1,
-  connect: 'lower',
+  connect: true,
 });
 //sliderElement.setAttribute('hidden', true);
 //console.log(sliderElement);
