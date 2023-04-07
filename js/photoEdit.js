@@ -53,7 +53,6 @@ noUiSlider.create(sliderElement, {
     min: 0,
     max: 100,
   },
-  start: 100,
   step: 1,
   connect: true,
 });
