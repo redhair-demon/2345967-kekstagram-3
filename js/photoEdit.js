@@ -1,5 +1,4 @@
 const imgUploadPreview = document.querySelector('.img-upload__preview');
-//imgUploadPreview.style.setProperty('transform','scale(1.0)');
 
 // Эффекты
 for (let button of document.querySelectorAll('.effects__radio')) {
@@ -49,6 +48,7 @@ const filters = {
 
 // eslint-disable-next-line no-undef
 noUiSlider.create(sliderElement, {
+  start: 0,
   range: {
     min: 0,
     max: 100,
@@ -56,8 +56,8 @@ noUiSlider.create(sliderElement, {
   step: 1,
   connect: true,
 });
-//sliderElement.setAttribute('hidden', true);
-//console.log(sliderElement);
+
+sliderElement.hidden = true;
 
 let currentEffect = 'none';
 let sliderValue;
