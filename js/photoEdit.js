@@ -70,11 +70,13 @@ function setEffect(effect, flag) {
     image.style.filter = '';
     return;
   }
+
   const minValue = filters[effect].min;
   const maxValue = filters[effect].max;
   const stepValue = filters[effect].step;
   const measureValue = filters[effect].measure;
   const nameValue = filters[effect].name;
+
   if (!flag) {
     image.style.filter = `${nameValue}(${maxValue}${measureValue})`;
     sliderElement.noUiSlider.updateOptions({
@@ -85,6 +87,7 @@ function setEffect(effect, flag) {
       start: maxValue,
       step: stepValue
     });
+
     sliderElement.removeAttribute('hidden', false);
     image.className = '';
     image.classList.add(`effects__preview--${effect}`);
