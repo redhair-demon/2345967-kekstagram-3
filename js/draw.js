@@ -1,10 +1,13 @@
 import { getPhotos } from './data.js';
+// import { getData } from './getData.js';
 
 const pictureTemplate = document.querySelector('#picture').content;
 const pictures = document.querySelector('.pictures');
 const newFragment = new DocumentFragment();
 
-getPhotos().forEach((photo)=> {
+const photos = await getPhotos();
+
+photos.forEach((photo)=> {
   const template = pictureTemplate.cloneNode(true);
   const img = template.querySelector('.picture__img');
   const likes = template.querySelector('.picture__likes');
