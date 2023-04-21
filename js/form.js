@@ -1,3 +1,6 @@
+import { sendData } from "./fetchData.js";
+import { closeImageUpload } from "./bigPicture.js";
+
 const form = document.querySelector('.img-upload__form');
 
 // eslint-disable-next-line no-undef
@@ -28,9 +31,13 @@ pristine.addValidator(
   `Комментарий дложен быть от ${minLen} до ${maxLen} символов.`
 );
 
-//if (pristine.validate()) {
-//  document.querySelector('.img-upload__submit').disabled = true;
-//}
-//else {
-//  document.querySelector('.img-upload__submit').disabled = false;
-//}
+form.addEventListener('submit', async (evt) => {
+  evt.preventDefault();
+  if(pristine.validate()) {
+    const data = new FormData(document.getElementById('upload-select-image'))
+    evt.target.querySelector('.img-upload__submit').disabled = true;
+    console.log(form);
+    await sendData(data);
+    closeImageUpload();
+  }
+});

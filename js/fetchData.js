@@ -1,3 +1,5 @@
+import {errorAlert, successAlert} from "./bigPicture.js"
+
 async function getData(url) {
   try {
     return (await fetch(url)).json();
@@ -6,23 +8,22 @@ async function getData(url) {
   }
 }
 
-const sendURL = 'https://27.javascript.pages.academy/kekstagram-simplep';
+const sendURL = 'https://27.javascript.pages.academy/kekstagram-simple';
 
-async function sendData() {
-  // const filename = document.getElementById('upload-file').value;
-  // const scale = document.querySelector('scale__control-value').value;
-  const data = new FormData(document.getElementById('upload-select-image'))
+async function sendData(data) {
+  alert('Отправка формы...');
   console.log(JSON.stringify(data));
   try {
-    fetch(sendURL, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      },
-      body: JSON.stringify(data)
-    })
+    const response = await fetch(sendURL, { method: 'POST', headers: {  }, body: data });
+    if (response.ok) {
+      console.log(data);
+      successAlert();
+      console.log(response);
+    } else {
+      errorAlert();
+    }
   } catch (error) {
-    alert(error);
+    errorAlert();
   }
 }
 
