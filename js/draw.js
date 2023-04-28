@@ -1,5 +1,4 @@
 import { getPhotos } from './data.js';
-// import { getData } from './getData.js';
 
 const pictureTemplate = document.querySelector('#picture').content;
 const pictures = document.querySelector('.pictures');

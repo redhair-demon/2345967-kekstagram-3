@@ -1,4 +1,4 @@
-import {errorAlert, successAlert} from "./bigPicture.js"
+import {openAlert} from "./bigPicture.js"
 
 async function getData(url) {
   try {
@@ -11,19 +11,18 @@ async function getData(url) {
 const sendURL = 'https://27.javascript.pages.academy/kekstagram-simple';
 
 async function sendData(data) {
-  alert('Отправка формы...');
   console.log(JSON.stringify(data));
   try {
     const response = await fetch(sendURL, { method: 'POST', headers: {  }, body: data });
     if (response.ok) {
       console.log(data);
-      successAlert();
+      openAlert('success');
       console.log(response);
     } else {
-      errorAlert();
+      openAlert('error');
     }
   } catch (error) {
-    errorAlert();
+    openAlert('error');
   }
 }
 
